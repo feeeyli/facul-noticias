@@ -148,6 +148,6 @@ def create_feed():
 app = FastAPI()
 
 
-@app.get("/rss")
+@app.get("/")
 async def root():
     return Response(content=ET.ElementTree(ET.fromstring(create_feed())), media_type="application/xml")
