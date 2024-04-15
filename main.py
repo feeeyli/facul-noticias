@@ -104,7 +104,7 @@ def create_feed():
 
     for item in get_fap_news():
         _items.append(rfeed.Item(
-            title=item['title'],
+            title="FAP: " + item['title'],
             link=item['link'],
             pubDate=datetime.fromisoformat(item['publishedAt']),
             author="FAP",
@@ -113,7 +113,7 @@ def create_feed():
 
     for item in get_enem_news():
         _items.append(rfeed.Item(
-            title=item['title'],
+            title="ENEM: " + item['title'],
             link=item['link'],
             description=item['description'],
             pubDate=datetime.fromisoformat(item['publishedAt']),
@@ -125,7 +125,7 @@ def create_feed():
 
     for item in get_utfpr_news():
         _items.append(rfeed.Item(
-            title=item['title'],
+            title="UTFPR: " + item['title'],
             link=item['link'],
             description=item['description'],
             pubDate=datetime.fromisoformat(item['publishedAt']),
