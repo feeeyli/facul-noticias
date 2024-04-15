@@ -131,8 +131,8 @@ def create_feed():
             pubDate=datetime.fromisoformat(item['publishedAt']),
             author="UTFPR",
             guid=rfeed.Guid(item['link']),
-            enclosure=rfeed.Enclosure(
-                url=item['image'], type=f"image/{item['image'].split('.')[-1]}", length=0)
+            # enclosure=rfeed.Enclosure(
+            #     url=item['image'], type=f"image/{item['image'].split('.')[-1]}", length=0)
         ))
 
     feed = rfeed.Feed(title="Facul Noticias",
