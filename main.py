@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 from bs4 import BeautifulSoup, Tag
 from fastapi import FastAPI, Response
 import requests
@@ -106,7 +106,8 @@ def create_feed():
         _items.append(rfeed.Item(
             title="FAP: " + item['title'],
             link=item['link'],
-            pubDate=datetime.fromisoformat(item['publishedAt']),
+            pubDate=datetime.fromisoformat(
+                item['publishedAt']) + timedelta(hours=3),
             author="FAP",
             guid=rfeed.Guid(item['link']),
         ))
@@ -116,7 +117,8 @@ def create_feed():
             title="ENEM: " + item['title'],
             link=item['link'],
             description=item['description'],
-            pubDate=datetime.fromisoformat(item['publishedAt']),
+            pubDate=datetime.fromisoformat(
+                item['publishedAt']) + timedelta(hours=3),
             author="ENEM",
             guid=rfeed.Guid(item['link']),
             enclosure=rfeed.Enclosure(
@@ -128,7 +130,8 @@ def create_feed():
             title="UTFPR: " + item['title'],
             link=item['link'],
             description=item['description'],
-            pubDate=datetime.fromisoformat(item['publishedAt']),
+            pubDate=datetime.fromisoformat(
+                item['publishedAt']) + timedelta(hours=3),
             author="UTFPR",
             guid=rfeed.Guid(item['link']),
             enclosure=rfeed.Enclosure(
