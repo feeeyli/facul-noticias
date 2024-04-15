@@ -119,8 +119,8 @@ def create_feed():
             pubDate=datetime.fromisoformat(item['publishedAt']),
             author="ENEM",
             guid=rfeed.Guid(item['link']),
-            enclosure=rfeed.Enclosure(url=item['image'], type=f"image/{"jpeg" if item['image'].endswith(
-                ".jpg") else "png" if item['image'].endswith(".png") else item['image'].split('.')[-1]}", length=0)
+            enclosure=rfeed.Enclosure(
+                url=item['image'], type=f"image/{item['image'].split('.')[-1]}", length=0)
         ))
 
     for item in get_utfpr_news():
@@ -131,8 +131,8 @@ def create_feed():
             pubDate=datetime.fromisoformat(item['publishedAt']),
             author="UTFPR",
             guid=rfeed.Guid(item['link']),
-            # enclosure=rfeed.Enclosure(
-            #     url=item['image'], type=f"image/{item['image'].split('.')[-1]}", length=0)
+            enclosure=rfeed.Enclosure(
+                url=item['image'], type=f"image/{item['image'].split('.')[-1]}", length=0)
         ))
 
     feed = rfeed.Feed(title="Facul Noticias",
